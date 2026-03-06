@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>お菓子ガチャ</title>
+<title>ブラックサンダーガチャ</title>
 
 <style>
 
@@ -11,21 +11,25 @@ text-align:center;
 font-family:sans-serif;
 margin-top:120px;
 background:#fff8e1;
-}
-
-button{
-font-size:24px;
-padding:20px 40px;
-border:none;
-border-radius:10px;
-background:#ff9800;
-color:white;
-cursor:pointer;
+overflow:hidden;
 }
 
 #result{
-margin-top:40px;
+margin-top:50px;
 font-size:40px;
+}
+
+.snack{
+position:fixed;
+top:-50px;
+font-size:40px;
+animation:fall 2s linear forwards;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh);
+}
 }
 
 </style>
@@ -34,29 +38,48 @@ font-size:40px;
 
 <body>
 
-<h1>🍫 お菓子ガチャ 🍫</h1>
+<h1>⚡ ブラックサンダーガチャ ⚡</h1>
 
-<button onclick="draw()">引く</button>
-
-<div id="result"></div>
+<div id="result">お菓子が落ちてきます…</div>
 
 <script>
 
-function draw(){
-
 const snacks=[
-"⚡ブラックサンダー！",
-"🍪 クッキー！",
-"🍫 チョコ！",
-"🍬 キャンディ！"
+"⚡ブラックサンダー！！",
+"🍪 その他のお菓子！"
 ]
 
-const r=Math.floor(Math.random()*snacks.length)
+// 落ちてくるアニメーション
+for(let i=0;i<15;i++){
 
-document.getElementById("result").innerHTML=
-snacks[r]+"<br><br>ご自由にお食べください 😋"
+const s=document.createElement("div")
+s.className="snack"
+s.innerText="🍫"
+
+s.style.left=Math.random()*100+"vw"
+s.style.animationDelay=Math.random()*1+"s"
+
+document.body.appendChild(s)
 
 }
+
+// 2秒後に結果
+setTimeout(()=>{
+
+const r=Math.random()
+
+let result
+
+if(r<0.5){
+result="⚡ブラックサンダー！！"
+}else{
+result="🍪 その他のお菓子！"
+}
+
+document.getElementById("result").innerHTML=
+result+"<br><br>ご自由にお食べください 😋"
+
+},2000)
 
 </script>
 
