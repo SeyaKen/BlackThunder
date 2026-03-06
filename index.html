@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>お菓子ガチャ</title>
+
+<style>
+
+body{
+text-align:center;
+font-family:sans-serif;
+margin-top:120px;
+background:#fff8e1;
+}
+
+button{
+font-size:24px;
+padding:20px 40px;
+border:none;
+border-radius:10px;
+background:#ff9800;
+color:white;
+cursor:pointer;
+}
+
+#result{
+margin-top:40px;
+font-size:40px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>🍫 お菓子ガチャ 🍫</h1>
+
+<button onclick="draw()">引く</button>
+
+<div id="result"></div>
+
+<script>
+
+function draw(){
+
+const snacks=[
+"⚡ブラックサンダー！",
+"🍪 クッキー！",
+"🍫 チョコ！",
+"🍬 キャンディ！"
+]
+
+const r=Math.floor(Math.random()*snacks.length)
+
+document.getElementById("result").innerHTML=
+snacks[r]+"<br><br>ご自由にお食べください 😋"
+
+}
+
+</script>
+
+</body>
+</html>
