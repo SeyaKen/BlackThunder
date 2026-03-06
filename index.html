@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>BLACK THUNDER</title>
+<title>BLACK THUNDER GACHA</title>
 
 <style>
 
@@ -55,7 +55,7 @@ pointer-events:none;
 
 <body>
 
-<h1 id="title">⚡ BLACK THUNDER ⚡</h1>
+<h1>⚡ BLACK THUNDER GACHA ⚡</h1>
 
 <div id="result"></div>
 
@@ -71,7 +71,7 @@ flash.style.opacity=1
 
 setTimeout(()=>{
 flash.style.opacity=0
-},100)
+},120)
 
 }
 
@@ -95,21 +95,27 @@ document.body.appendChild(c)
 }
 
 setTimeout(()=>{
-
 lightning()
-
 },500)
 
 setTimeout(()=>{
-
 dropChocolate()
-
 },800)
 
 setTimeout(()=>{
 
-document.getElementById("result").innerHTML=
-"⚡ SUPER BLACK THUNDER ⚡<br><br>ご自由にどうぞ 😋"
+const r=Math.random()
+
+let result
+
+if(r<0.65){
+result="⚡ 超大当たり ⚡<br>ブラックサンダー！"
+}else{
+result="🍪 当たり<br>その他のお菓子！"
+}
+
+document.getElementById("result").innerHTML =
+result + "<br><br>ご自由にどうぞ 😋"
 
 document.getElementById("result").style.opacity=1
 
