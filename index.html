@@ -9,25 +9,26 @@
 body{
 text-align:center;
 font-family:sans-serif;
-background:#fff3cd;
+background:linear-gradient(#fff3cd,#ffe082);
 overflow:hidden;
+margin:0;
 }
 
 h1{
 margin-top:80px;
-font-size:40px;
+font-size:42px;
 }
 
 #result{
-margin-top:40px;
-font-size:42px;
+margin-top:50px;
+font-size:44px;
 font-weight:bold;
 }
 
 .thunder{
 position:fixed;
-top:-120px;
-width:80px;
+top:-50px;
+font-size:40px;
 animation:fall linear forwards;
 }
 
@@ -48,34 +49,30 @@ transform:translateY(120vh) rotate(360deg);
 
 <script>
 
-const thunderImg="https://upload.wikimedia.org/wikipedia/commons/5/5a/Black_Thunder_chocolate_bar.jpg"
+// ブラックサンダー風チョコを大量生成
+for(let i=0;i<60;i++){
 
-// 大量に降らせる
-for(let i=0;i<30;i++){
+const s=document.createElement("div")
 
-const img=document.createElement("img")
+s.className="thunder"
+s.innerText="🍫"
 
-img.src=thunderImg
-img.className="thunder"
+s.style.left=Math.random()*100+"vw"
+s.style.animationDuration=(2+Math.random()*2)+"s"
+s.style.animationDelay=Math.random()*1+"s"
 
-img.style.left=Math.random()*100+"vw"
-
-img.style.animationDuration=(2+Math.random()*2)+"s"
-
-img.style.animationDelay=Math.random()*1+"s"
-
-document.body.appendChild(img)
+document.body.appendChild(s)
 
 }
 
-// 結果
+// 結果表示
 setTimeout(()=>{
 
 const r=Math.random()
 
 let result
 
-if(r<0.6){
+if(r<0.65){
 result="⚡超大当たり⚡<br>ブラックサンダー！"
 }else{
 result="🍪当たり<br>その他のお菓子！"
